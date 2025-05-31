@@ -22,5 +22,41 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.gradient-background {
+  background: radial-gradient(circle at center, 
+    rgba(173, 216, 230, 0.7) 0%, 
+    rgba(135, 206, 250, 0.7) 20%, 
+    rgba(255, 182, 193, 0.7) 40%, 
+    rgba(255, 160, 122, 0.7) 60%, 
+    rgba(255, 127, 80, 0.7) 80%, 
+    rgba(255, 99, 71, 0.7) 100%);
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.category-button {
+  @apply px-4 py-2 rounded-full text-sm font-medium transition-colors;
+}
+
+.category-button.active {
+  @apply bg-gray-200;
+}
+
+.category-button:hover:not(.active) {
+  @apply bg-gray-100;
 }
